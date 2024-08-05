@@ -1,33 +1,13 @@
 package app;
 
-import app.controller.AdminController;
-import app.controller.ControllerInterface;
-import app.controller.SellerController;
-import app.controller.Utils;
+import app.controller.LoginController;
 
 public class App {
 
-	public static void main(String[] args) {
-		ControllerInterface controllerAdmin = new AdminController();
-		ControllerInterface controllerSeller = new SellerController();
+	public static void main(String[] args) throws Exception {
+		LoginController veterinarianController = new LoginController();
 		try {
-			while (true) {
-				System.out.println(" 1. para administrador \n 2. para vendedor\n");
-				String option = Utils.getReader().nextLine();
-				switch (option) {
-				case "1": {
-					controllerAdmin.session();
-					break;
-				}
-				case "2": {
-					controllerSeller.session();
-					break;
-				}
-				default: {
-					return;
-				}
-				}
-			}
+			veterinarianController.session();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
